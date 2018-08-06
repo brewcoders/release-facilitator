@@ -5,9 +5,9 @@ function addUser(user) {
         .insert({
             username: user.username,
             password: user.password,
-            first_name: user.first_name,
-            last_name: user.last_name,
-            team_id: user.team_id
+            first_name: user.firstname,
+            last_name: user.lastname,
+            team_id: user.teamid
         })
         .returning('*');
 }
