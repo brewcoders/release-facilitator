@@ -6,13 +6,15 @@ exports.seed = (knex, Promise) => {
                     username: 'sharmav',
                     firstname: 'Vivek',
                     lastname: 'Sharma',
-                    password: 'password'
+                    password: 'password',
+                    teamid:3
                 }),
                 knex('users').insert({
                     username: 'kamatha',
                     firstname: 'Arun',
                     lastname: 'Kamath',
-                    password: 'password'
+                    password: 'password',
+                    teamid:4
                 })
             );
         });

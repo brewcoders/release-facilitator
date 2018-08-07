@@ -5,9 +5,9 @@ function addUser(user) {
         .insert({
             username: user.username,
             password: user.password,
-            first_name: user.firstname,
-            last_name: user.lastname,
-            team_id: user.teamid
+            firstname: user.firstname,
+            lastname: user.lastname,
+            teamid: user.teamid
         })
         .returning('*');
 }
@@ -21,12 +21,6 @@ function getSingleUser(id) {
     return knex('users')
         .select('*')
         .where({ id: parseInt(id) });
-}
-
-function addUser(user) {
-    return knex('users')
-        .insert(user)
-        .returning('*');
 }
 
 function updateUser(id, User) {

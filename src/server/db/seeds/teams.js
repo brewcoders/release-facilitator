@@ -1,19 +1,15 @@
 exports.seed = (knex, Promise) => {
-    return knex('users').del()
+    /*return knex('teams').del()
         .then(() => {
             return Promise.join(
-                knex('users').insert({
-                    username: 'sharmav',
-                    firstname: 'Vivek',
-                    lastname: 'Sharma',
-                    password: 'password'
+                knex('teams').insert({
+                    name:'Cards',
+                    deployableid:7
                 }),
-                knex('users').insert({
-                    username: 'kamatha',
-                    firstname: 'Arun',
-                    lastname: 'Kamath',
-                    password: 'password'
+                knex('teams').insert({
+                    name:'Config',
+                    deployableid:7
                 })
             );
-        });
+        });*/
 };

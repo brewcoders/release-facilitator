@@ -11,7 +11,7 @@ router.get('/auth/register', async (ctx) => {
 });
 
 router.post('/auth/register', async (ctx) => {
-    const user = await queries.addUser(ctx.request.body);
+    const user = await queries.addUser(ctx.request.body.user);
     return passport.authenticate('local', (err, user, info, status) => {
         if (user) {
             ctx.login(user);
@@ -37,7 +37,8 @@ router.get('/auth/login', async (ctx) => {
         ctx.type = 'html';
         ctx.body = fs.createReadStream('./src/server/views/login.html');
     } else {
-        ctx.redirect('/auth/status');
+        ctx.body = { user: ctx.state.user };
+        //ctx.redirect('/auth/status');
     }
 });
 
@@ -45,7 +46,8 @@ router.post('/auth/login', async (ctx) => {
     return passport.authenticate('local', (err, user, info, status) => {
         if (user) {
             ctx.login(user);
-            ctx.redirect('/auth/status');
+            //ctx.redirect('/auth/status');
+            ctx.body = { user: user };
         } else {
             ctx.status = 400;
             ctx.body = { status: 'error' };
